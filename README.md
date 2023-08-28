@@ -51,7 +51,9 @@ The study region was often heavily covered by clouds, with an average cloud cove
 ### Snow Cover Duration 
 The SCD was calculated for every hydrological year and every pixel of the MODIS scenes and ranged from 0 to 365/ 366 days.
 
-<img width="311" alt="MeanSCD_16bit" src="https://github.com/leibrocs/SnowCoverAnalysis_SpatialPython/assets/116877154/8f9be2d5-dc7e-4324-a5fe-10c263e2a5fe">
+<p align="center">
+<img width="500" alt="MeanSCD_16bit" src="https://github.com/leibrocs/SnowCoverAnalysis_SpatialPython/assets/116877154/8f9be2d5-dc7e-4324-a5fe-10c263e2a5fe">
+<p/>
 
 ### Elevation Dynamics of the Snow Cover Duration
 To analyse the dynamics of the SCD for different elevation zones, the it was plotted for each hydrological year and for 29 250-meter elevation zones ranging from zero to 7.000 meters. The results suggest that the number of days with snow cover increases along the elevation profile. For low elevations the mean SCD increased strongly with each elevation zone. Between 750 and 4.500 meters the SCD increase with elevation slows down to durations ranging from ~80 to ~170 days. Above 4.500 meters the SCD is again rapidly rising to durations up to 365 days in the highest elevation zone. Additionally, there were fluctuations between the SCDs for the different elevation zones over the ten years observable. For this time series, an overall increasing or decreasing trend in the number of snow-covered days per year is not present.
@@ -67,8 +69,9 @@ Above 400 meters the mean SCD was fluctuating between 98 days in 21/22, and 131 
 <p/>
 
 ### Visualization of the Mean SCD in QGIS
-<img width="500" alt="MeanSCD_QGIS_16bit" src="https://github.com/leibrocs/SnowCoverAnalysis_SpatialPython/assets/116877154/0efd159a-96dc-49ee-a634-6351617522ca"/>
-
+<p float="left">
+  <img width="500" alt="MeanSCD_QGIS_16bit" src="https://github.com/leibrocs/SnowCoverAnalysis_SpatialPython/assets/116877154/0efd159a-96dc-49ee-a634-6351617522ca"/>
+  <img width="500" src="https://github.com/leibrocs/SnowCoverAnalysis_SpatialPython/assets/116877154/27799207-6a14-4a0c-bfa0-4543257e0b12"/>
+<p/> 
+  
 Lastly, the mean SCD over the whole time series of ten years was visualized using QGIS software. The first map displays nicely the increase in SCD with elevation. The highest values were found at the peaks of the Tianshan Mountain range in the South of the study region which corresponds to the areas with the highest elevation. Additionally, both maps show, that the areas with zero SCD are all located at water bodies. In the second map the slow gain in SCD towards the mountainous areas can be seen. Especially in valleys close to the mountains the SCD seems to be particularly low.
-
-<img width="500" src="https://github.com/leibrocs/SnowCoverAnalysis_SpatialPython/assets/116877154/27799207-6a14-4a0c-bfa0-4543257e0b12"/>
