@@ -27,6 +27,7 @@ Additionally, a snow cover output folder was created for every hydrological year
 
 ## Snow Cover and Snow Cover Duration (SCD) Analysis
 After the data preparation, one terra subfolder after another was read in using the SnowCover_SnowCoverDuration.ipynb script. It was used to clear all cloud- and no-data flagged pixels and to interpolate these data/ cloud gaps to identify the snow cover status on the ground. The resulting raster files were then stored in a previously defined snow cover output folder for the respective hydrological year. After the calculation of the snow cover for every terra scene, the snow cover duration for the currently open year was determined for each pixel, which resulted in a raster with SCD values ranging from 0 to 365/ 366. The output file was then stored in a separate folder, where all the SCD raster files for the ten hydrological years were saved.
+Lastly, the SCD was visualized for every 250-meter elevation zone using the script SCD_Visualization.ipynb. It was also used to calculate the mean SCD and to plot the mean SCD above 400 meters.
 
 ## Results
 
