@@ -21,13 +21,13 @@ For this analysis MODIS Terra and Aqua Snow Cover Daily L3 Global 500m SIN Grid 
 ### Data Preparation
 
 #### Data Download
-To acquire ten years of MODIS snow cover data from the two satellites automatically, the script Download_MODIS.ipynb had to be run twice. Once to download the MODIS Terra snow cover data and a second time to get the scenes from the aqua satellite. As input a GeoJSON file with the corner coordinates of the study region was required. Additionally, the time frame needed to be specified to filter the granules and was set from first of September 2012 to 31st of August 2022. 
+To automatically acquire ten years of MODIS snow cover data from the two satellites, the script "Download_MODIS.ipynb" had to be executed twice. The first run was performed to download the MODIS Terra snow cover data, and the second run was carried out to obtain scenes from the Aqua satellite. As input, a GeoJSON file containing the corner coordinates of the study region was required. Additionally, a time frame needed to be specified to filter the granules, which was set from September first 2012 to August 31st of 2022.
 
 
 #### Replace Missing Files
-Some MODIS terra Snow Cover files were missing from the ten-year time series and needed to be identified and replaced. The script ReplaceMissing_MODIS.ipynb runs through the terra file folder, detects missing files and replaces them with the respective files from the aqua folder. Additionally, in case that there was neither a terra nor an aqua file, a new file only containing zeros was created and stored in the same folder.
+Certain MODIS Terra Snow Cover files were found to be missing within the ten-year time series and needed identification and replacement. The script "ReplaceMissing_MODIS.ipynb" was used to run through the Terra file folder, detect the absence of files, and substitutes them with the corresponding files from the Aqua folder. Furthermore, if neither a Terra nor an Aqua file was available, a new file containing only zeros was generated and stored in the same folder.
 
-After the terra file folder was updated and included the complete ten-year daily time series of MODIS snow cover data, the folder was manually split into multiple subfolders containing only the data for one hydrological year. This resulted in ten folders with 365 or 366 (for leap years) files. This step was necessary because the used laptop was not able to handle a large dataset of the size of the entire MODIS terra folder.
+Following the update of the Terra file folder, which now included the complete ten-year daily time series of MODIS Snow Cover data, the folder was manually divided into multiple subfolders, each containing data for a single hydrological year. This resulted in ten folders, each containing either 365 files or 366 files for leap years. This division was imperative as the laptop in use could not efficiently manage a large dataset of the entire size of the MODIS Terra folder.
 
   -> Example subfolder name: MOD10A1_12-13, MOD10A1_13-14, ..., MOD10A1_21-22
   
@@ -36,13 +36,17 @@ Additionally, a snow cover output folder was created for every hydrological year
   -> Example snow cover folder name: SC_12-13, SC_13-14, ..., SC_21-22
 
 ### Snow Cover and Snow Cover Duration (SCD) Analysis
-After the data preparation, one terra subfolder after another was read in using the SnowCover_SnowCoverDuration.ipynb script. It was used to clear all cloud- and no-data flagged pixels and to interpolate these data/ cloud gaps to identify the snow cover status on the ground. The resulting raster files were then stored in a previously defined snow cover output folder for the respective hydrological year. After the calculation of the snow cover for every terra scene, the snow cover duration for the currently open year was determined for each pixel, which resulted in a raster with SCD values ranging from 0 to 365/ 366. The output file was then stored in a separate folder, where all the SCD raster files for the ten hydrological years were saved.
-Lastly, the SCD was visualized for every 250-meter elevation zone using the script SCD_Visualization.ipynb. It was also used to calculate the mean SCD and to plot the mean SCD above 400 meters.
+Following the data preparation phase, the "SnowCover_SnowCoverDuration.ipynb" script was employed to process one Terra subfolder at a time. Its purpose was to eliminate any cloud- or no-data flagged pixels and perform interpolation to fill data gaps, ultimately identifying the snow cover status on the ground. The resulting raster files were subsequently stored in a snow cover output folder that had been defined in advance, corresponding to the respective hydrological year.
+
+Upon completing the snow cover calculation for each Terra scene, the snow cover duration (SCD) for the currently processed year was determined for every pixel, resulting in a raster file containing SCD values ranging from 0 to 365 (or 366 for leap years). These output files were stored in a separate folder, containing all SCD raster files for the ten hydrological years.
+
+Finally, the SCD data were visualized for each 250-meter elevation zone using the "SCD_Visualization.ipynb" script. This script was also employed to calculate the mean SCD values and generate plots illustrating the mean SCD values for elevations above 400 meters.
+
 
 ## 3. Results
 
 ### Cloud Cover
-The study region was often heavily covered by clouds, with an average cloud cover percentage of ~ 45%. During the middle of the hydrological year the most clouds occured which resulted in scenes that were close to 100% covered by clouds. In the beginning and the end of the study period, which corresponds to the summer months, the lowest cloud cover percentage was observable.
+The study region frequently experienced significant cloud cover, with an average cloud cover percentage of approximately 45%. The highest incidence of clouds occurred during the midpoint of the hydrological year, leading to scenes that were nearly 100% obscured by clouds. Conversely, during the initial and final phases of the study period, corresponding to the summer months, the cloud cover percentage was at its lowest.
 
 <p align="center">
   <img width="606" alt="CloudCover_21-22" src="https://github.com/leibrocs/SnowCoverAnalysis_SpatialPython/assets/116877154/e10aebdd-36c7-4623-a1ca-21ec598515aa">
@@ -56,7 +60,9 @@ The SCD was calculated for every hydrological year and every pixel of the MODIS 
 <p/>
 
 ### Elevation Dynamics of the Snow Cover Duration
-To analyse the dynamics of the SCD for different elevation zones, the it was plotted for each hydrological year and for 29 250-meter elevation zones ranging from zero to 7.000 meters. The results suggest that the number of days with snow cover increases along the elevation profile. For low elevations the mean SCD increased strongly with each elevation zone. Between 750 and 4.500 meters the SCD increase with elevation slows down to durations ranging from ~80 to ~170 days. Above 4.500 meters the SCD is again rapidly rising to durations up to 365 days in the highest elevation zone. Additionally, there were fluctuations between the SCDs for the different elevation zones over the ten years observable. For this time series, an overall increasing or decreasing trend in the number of snow-covered days per year is not present.
+To analyze the dynamics of the SCD across various elevation zones, it was plotted for each hydrological year over 29 250-meter elevation zones spanning from zero to 7,000 meters. The results indicate a trend where the number of days with snow cover increases with rising elevation. At lower elevations, the mean SCD experiences a notable increase with each elevation zone. Between elevations of 750 and 4,500 meters, the rate of increase in SCD with elevation becomes more gradual, resulting in durations ranging from approximately 80 to about 170 days.
+
+However, above the elevation of 4,500 meters, SCD starts to rapidly rise again, reaching durations of up to 365 days in the highest elevation zone. Additionally, noticeable fluctuations in SCD were observed among the different elevation zones over the ten-year period. Notably, there was no consistent overall trend of increasing or decreasing snow-covered days per year in this time series analysis.
 
 <p align="center">
 <img width="593" alt="MeanSCD_250m_ElevationZones_16bit" src="https://github.com/leibrocs/SnowCoverAnalysis_SpatialPython/assets/116877154/687c82e2-18c7-4138-af9d-4ff3143515cb">
@@ -74,7 +80,8 @@ Above 400 meters the mean SCD was fluctuating between 98 days in 21/22, and 131 
   <img width="500" src="https://github.com/leibrocs/SnowCoverAnalysis_SpatialPython/assets/116877154/27799207-6a14-4a0c-bfa0-4543257e0b12"/>
 <p/> 
   
-Lastly, the mean SCD over the whole time series of ten years was visualized using QGIS software. The first map displays nicely the increase in SCD with elevation. The highest values were found at the peaks of the Tianshan Mountain range in the South of the study region which corresponds to the areas with the highest elevation. Additionally, both maps show, that the areas with zero SCD are all located at water bodies. In the second map the slow gain in SCD towards the mountainous areas can be seen. Especially in valleys close to the mountains the SCD seems to be particularly low.
+Lastly, the mean SCD over the entire ten-year time series was visualized using QGIS software. In thefirst map, a clear pattern emerged, illustrating the increase in SCD with higher elevations. The highest SCD values were observed at the peaks of the Tianshan Mountain range in the southern part of the study region, which corresponds to the areas with the greatest elevation. Additionally, both maps revealed that regions with zero SCD were consistently situated over water bodies. 
+In the second map, a gradual and steady rise in SCD towards the mountainous areas became evident. Particularly in valleys near the mountains, the SCD appeared to be notably lower.
 
 ## 4. References
 [1] Liu, J. P.; Zhang, W. C. (2017): Long term spatio-temporal analyses of snow cover in Central Asia using ERA-Interim and MODIS products. In: IOP Conf. Ser.: Earth Environ. Sci. 57, S. 12033. DOI: 10.1088/1755-1315/57/1/012033.
