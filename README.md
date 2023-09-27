@@ -29,11 +29,11 @@ Certain MODIS Terra Snow Cover files were found to be missing within the ten-yea
 
 Following the update of the Terra file folder, which now included the complete ten-year daily time series of MODIS Snow Cover data, the folder was manually divided into multiple subfolders, each containing data for a single hydrological year. This resulted in ten folders, each containing either 365 files or 366 files for leap years. This division was imperative as the laptop in use could not efficiently manage a large dataset of the entire size of the MODIS Terra folder.
 
-  * Example subfolder name: MOD10A1_12-13, MOD10A1_13-14, ..., MOD10A1_21-22
+  - Example subfolder name: MOD10A1_12-13, MOD10A1_13-14, ..., MOD10A1_21-22
   
 Additionally, a snow cover output folder was created for every hydrological year to later store the GeoTiff datasets with the snow/ no snow information.
 
-  * Example snow cover folder name: SC_12-13, SC_13-14, ..., SC_21-22
+  - Example snow cover folder name: SC_12-13, SC_13-14, ..., SC_21-22
 
 ### Snow Cover and Snow Cover Duration (SCD) Analysis
 Following the data preparation phase, the "SnowCover_SnowCoverDuration.ipynb" script was employed to process one Terra subfolder at a time. Its purpose was to eliminate any cloud- or no-data flagged pixels and perform interpolation to fill data gaps, ultimately identifying the snow cover status on the ground. The resulting raster files were subsequently stored in a snow cover output folder that had been defined in advance, corresponding to the respective hydrological year.
