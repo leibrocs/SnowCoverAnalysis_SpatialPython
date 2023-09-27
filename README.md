@@ -15,7 +15,7 @@ The study region was defined by the extent of the MODIS tile h23v04, which is lo
 
 
 ### Data
-For this analysis MODIS Terra and Aqua Snow Cover Daily L3 Global 500m SIN Grid v61 data from the National Snow and Ice Data Center (NSIDC) was used. The snow cover in the product was identified using the Normalized Difference Snow Index (NDSI). The study period covered ten hydrological years starting from the first of September 2012 to the 31st of August 2022. For every hydrological year 365 tiles were analysed except for the leap years 2016 and 2020, where the year consisted of 366 scenes. In total, 7.304 MODIS Terra and Aqua scenes were downloaded. Additionally, a SRTM covering the study region was used.
+For this analysis MODIS Terra and Aqua Snow Cover Daily L3 Global 500m SIN Grid v61 data from the National Snow and Ice Data Center (NSIDC) was used. The snow cover in the product was identified using the Normalized Difference Snow Index (NDSI). The study period covered ten hydrological years starting from the first of September 2012 to the 31st of August 2022. For every hydrological year 365 tiles were analysed except for the two leap years 2016 and 2020, where the year consisted of 366 scenes. In total, 7.304 MODIS Terra and Aqua scenes were downloaded. Additionally, a SRTM covering the study region was used.
 
 
 ### Data Preparation
