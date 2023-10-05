@@ -1,13 +1,13 @@
 # Analysis of Snow Cover and Snow Cover Duration in Central Asia
 
 ## 1. Introduction
-Snow is one of the essential factors in the cryosphere and very sensitive to global climate change, especially in the arid and semi-arid regions of Central Asia [1]. Seasonal snow cover acts as efficient insulation as well as a natural water reservoir, storing solid precipitation in winter and releasing it during the spring and summer melt. Across the world, more than a billion people rely on snow as a resource for drinking water, irrigation, and/or hydroelectric power. Significant changes in how long snow persists on the ground can change the timing and amount of available water for communities dependent on snowmelt [2]. Snow cover is measured in duration, meaning how many days a particular place is covered by snow [1]. In remote areas, like Central Asia, situ monitoring is rare due to terrain complexity and inaccessibility, making remote sensing the most practical way to understand snow pattern. The Moderate Resolution Imaging Spectrometer (MODIS) is a popular choice for assessing snow cover trends because of its multispectral band placement, radiometric resolution that reduces saturation over bright snow, frequent temporal resolution, and record length, with snow cover maps since 1999/2002 (Aqua/Terra). This analysis used the daily MODIS Terra and Aqua Snow Cover product to investigated snow cover pattern and snow cover duration for a period of ten hydrological years from 2012 to 2022 in Central Asia.
+Snow is one of the essential factors in the cryosphere and very sensitive to global climate change, especially in the arid and semi-arid regions of Central Asia [1]. Seasonal snow cover acts as efficient insulation as well as a natural water reservoir, storing solid precipitation in winter and releasing it during the spring and summer melt. Across the world, more than a billion people rely on snow as a resource for drinking water, irrigation, and/or hydroelectric power. Significant changes in how long snow persists on the ground can change the timing and amount of available water for communities dependent on snowmelt [2]. Snow cover is measured in duration, meaning how many days a particular place is covered with snow [1]. In remote areas, like Central Asia, in situ monitoring is rare due to terrain complexity and inaccessibility, making remote sensing the most practical way to understand snow pattern. The Moderate Resolution Imaging Spectrometer (MODIS) is a popular choice for assessing snow cover trends because of its multispectral band placement, radiometric resolution that reduces saturation over bright snow, frequent temporal resolution, and record length, with snow cover maps since 1999/2002 (Aqua/Terra). This analysis used the daily MODIS Terra and Aqua Snow Cover product to investigated snow cover patterns and snow cover duration for a period of ten hydrological years from 2012 to 2022 in Central Asia.
 
 
 ## 2. Material and Methods
 
 ### Study Region - Central Asia
-The study region was defined by the extent of the MODIS tile h23v04, which is located in Central Asia and covers the corner region of seven countries (Russia, Mongolia, Kazakhstan, Uzbekistan, Kyrgyzstan, Tajikistan, and China). It includes the entire Tianshan Mountains in the South as well as the Altai Mountain Range in the North with the Zhunge’er Basin in between. Over 80% of the precipitation concentrates on the mountainous areas, providing crucial water resources for this arid and semiarid region. The snow cover and snow cover accumulation in this area differ significantly due to complex topography, various land types as well as varying climate regimes [3].
+The study region was delineated by the boundaries of the MODIS tile h23v04, located in Central Asia and covering the corner region of seven countries: Russia, Mongolia, Kazakhstan, Uzbekistan, Kyrgyzstan, Tajikistan, and China. This region spans from the entirety of the Tianshan Mountains in the South to the Altai Mountain Range in the North, with the Zhunge’er Basin lying in between. Notably, more than 80% of the precipitation in this area is concentrated within the mountainous zones, providing crucial water resources for this arid and semiarid region. The distribution and accumulation of snow in this area exhibit significant variations due to complex topography, divers land types as well as varying climate regimes [3].
 
 <p align="center">
 <img src="https://github.com/leibrocs/SnowCoverAnalysis_SpatialPython/assets/116877154/123a0afe-6219-4f9b-afac-4983be31216b" width="600"/>
@@ -25,7 +25,7 @@ To automatically acquire ten years of MODIS snow cover data from the two satelli
 
 
 #### Replace Missing Files
-Certain MODIS Terra Snow Cover files were found to be missing within the ten-year time series and needed identification and replacement. The script "ReplaceMissing_MODIS.ipynb" was used to run through the Terra file folder, detect the absence of files, and substitutes them with the corresponding files from the Aqua folder. Furthermore, if neither a Terra nor an Aqua file was available, a new file containing only zeros was generated and stored in the same folder.
+Certain MODIS Terra Snow Cover files were found to be missing within the ten-year time series and needed to be identified and replaced. The script "ReplaceMissing_MODIS.ipynb" was used to run through the Terra file folder, detect the absence of files, and substitutes them with the corresponding files from the Aqua folder. Furthermore, if neither a Terra nor an Aqua file was available, a new file containing only zeros was generated and stored in the same folder.
 
 Following the update of the Terra file folder, which now included the complete ten-year daily time series of MODIS Snow Cover data, the folder was manually divided into multiple subfolders, each containing data for a single hydrological year. This resulted in ten folders, each containing either 365 files or 366 files for leap years. This division was imperative as the laptop in use could not efficiently manage a large dataset of the entire size of the MODIS Terra folder.
 
@@ -53,7 +53,7 @@ The study region frequently experienced significant cloud cover, with an average
 </p>
 
 ### Snow Cover Duration 
-The SCD was calculated for every hydrological year and every pixel of the MODIS scenes and ranged from 0 to 365/ 366 days.
+The SCD was calculated for every hydrological year and every pixel of the MODIS scenes and ranged from 0 to 365/ 366 days:
 
 <p align="center">
 <img width="500" alt="MeanSCD_16bit" src="https://github.com/leibrocs/SnowCoverAnalysis_SpatialPython/assets/116877154/8f9be2d5-dc7e-4324-a5fe-10c263e2a5fe">
@@ -75,13 +75,16 @@ Above 400 meters the mean SCD was fluctuating between 98 days in 21/22, and 131 
 <p/>
 
 ### Visualization of the Mean SCD in QGIS
-<p float="left">
+<p align="center">
   <img width="500" alt="MeanSCD_QGIS_16bit" src="https://github.com/leibrocs/SnowCoverAnalysis_SpatialPython/assets/116877154/0efd159a-96dc-49ee-a634-6351617522ca"/>
   <img width="500" src="https://github.com/leibrocs/SnowCoverAnalysis_SpatialPython/assets/116877154/27799207-6a14-4a0c-bfa0-4543257e0b12"/>
 <p/> 
   
-Lastly, the mean SCD over the entire ten-year time series was visualized using QGIS software. In thefirst map, a clear pattern emerged, illustrating the increase in SCD with higher elevations. The highest SCD values were observed at the peaks of the Tianshan Mountain range in the southern part of the study region, which corresponds to the areas with the greatest elevation. Additionally, both maps revealed that regions with zero SCD were consistently situated over water bodies. 
-In the second map, a gradual and steady rise in SCD towards the mountainous areas became evident. Particularly in valleys near the mountains, the SCD appeared to be notably lower.
+Lastly, the mean SCD over the entire ten-year time series was visualized using QGIS software. In the first map, a clear pattern emerged, illustrating the increase in SCD with higher elevations. The highest SCD values were observed at the peaks of the Tianshan Mountain range in the southern part of the study region, which corresponds to the areas with the greatest elevation. Additionally, both maps revealed that regions with zero SCD were consistently situated over water bodies. 
+In the second map, a gradual and steady rise in SCD towards the mountainous areas became evident. Particularly in valleys near the mountains, the SCD appeared to be notably lower. 
+
+### Summary
+In summary, this analysis found that the number of days with snow cover tends to increase with higher elevations. In the most elevated zones of the study region, situated above 7,000m, the snow cover remained throughout the entire year. Furthermore, significant variations in SCD were observed among different elevation zones over the ten-year period. However, no discernable overall trend could be identified. Lastly it was found, that areas with zero day of snow cover were consistently associated with water bodies.
 
 ## 4. References
 [1] Liu, J. P.; Zhang, W. C. (2017): Long term spatio-temporal analyses of snow cover in Central Asia using ERA-Interim and MODIS products. In: IOP Conf. Ser.: Earth Environ. Sci. 57, S. 12033. DOI: 10.1088/1755-1315/57/1/012033.
